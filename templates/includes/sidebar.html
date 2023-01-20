@@ -1,0 +1,76 @@
+
+
+ <div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+       <div id="sidebar-menu" class="sidebar-menu">
+         {% if user.user_type == '1' %}
+          <ul>
+             <li class="" >
+               <a href="{% url 'hod_home' %}"><i class="fas fa-baseball-ball"></i> <span>DASHBOARD</span></a>
+            </li>
+             
+             <li class="submenu">
+                <a href="#"><i class="fas fa-user-graduate"></i> <span> कार्यालयको विवरण </span> <span class="menu-arrow"></span></a>
+                <ul>
+                   
+                   <li><a href="{% url 'view_employee'%}">कर्मचारीको विवरण </a></li>
+                   <li><a href="{% url 'view_department'%}">शाखाको विवरण</a></li>
+                   <li><a href="{% url 'view_petrolpump' %}">पेट्रोल पम्पको विवरण</a></li>
+               
+                </ul>
+             </li>
+             <li class="submenu">
+                <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> इन्धन व्यवस्थापन</span> <span class="menu-arrow"></span></a>
+                <ul> 
+                  <li><a href="{% url 'view_request_coupon'%}">माग कुपनको विवरण </a></li>
+                   <li><a href="{% url 'view_coupon'%}">कुपनको विवरण </a></li>
+               
+                </ul>
+             </li>
+             <li class="submenu">
+               <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> प्रतिबेदन</span> <span class="menu-arrow"></span></a>
+               <ul> 
+                  <li><a href="{% url 'search_coupon'%}">पेट्रोल पम्प अनुसार </a></li>  
+                  <li><a href="{% url 'search_coupon_datewise'%}"> मिति अनुसार </a></li>  
+               </ul>
+            </li>
+             <li class="submenu">
+               <a href="#"><i class="fas fa-chalkboard-teacher"></i> <span> सेटिङ</span> <span class="menu-arrow"></span></a>
+               <ul>
+       
+                  <li><a href="{% url 'add_employee'%}">कर्मचारी थप्नुहोस</a></li>
+                  <li><a href="{% url 'add_department'%}">शाखा थप्नुहोस</a></li>
+                  <li><a href="{% url 'add_petrolpump'%}">पेट्रोल पम्प थप्नुहोस</a></li>
+           
+               </ul>
+            </li>
+
+         </ul>
+
+
+            {% elif  user.user_type == '2'  %}
+            <ul>
+               <li>
+                  <a href="{% url 'local_staff_add_coupon'%}"><i class="fas fa-sign-out-alt"></i> <span>Request Coupon</span></a>
+                </li>
+           
+             
+               <li>
+               <a href="{% url 'logout'%}"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+             </li>
+          </ul>
+          {% else %}
+          <ul>
+           
+           <li class="submenu">
+            <a href="{% url 'view_coupon'%}"><i class="fas fa-chalkboard-teacher"></i> <span> इन्धनको विवरण</span> <span class="menu-arrow"></span></a>
+       
+         </li>
+         <li>
+            <a href="{% url 'logout'%}"><i class="fas fa-sign-out-alt"></i> <span>Logout</span></a>
+         </li>
+         {% endif %}
+
+       </div>
+    </div>
+ </div>
